@@ -1,0 +1,44 @@
+{
+  "name": "eos-encrypt",
+  "version": "1.0.0",
+  "description": "Allows to encrypt & decypt a message with an EOS key pair using AES shared key encryption mechanism.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "homepage": "https://github.com/eos-nation/eos-encrypt",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "types"
+  ],
+  "scripts": {
+    "prepare": "rm index.d.ts && tsc -d",
+    "test": "tsc && ava",
+    "docs": "documentation readme index.js --section=API"
+  },
+  "contributors": [
+    {
+      "name": "Denis Carriere",
+      "email": "denis@eosnation.io",
+      "url": "https://eosnation.io"
+    },
+    {
+      "name": "Guillaume Babin-Tremblay",
+      "email": "guillaume@eostitan.com",
+      "url": "http://eostitan.com"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "eosjs-ecc": "4.x",
+    "lodash.padstart": "*"
+  },
+  "devDependencies": {
+    "@types/lodash.padstart": "*",
+    "@types/long": "*",
+    "@types/node": "*",
+    "ava": "*",
+    "documentation": "*",
+    "tslint": "*",
+    "typescript": "*"
+  }
+}
