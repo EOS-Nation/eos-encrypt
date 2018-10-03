@@ -11,7 +11,7 @@
     "types"
   ],
   "scripts": {
-    "prepare": "rm index.d.ts && tsc -d",
+    "prepare": "rm -f index.d.ts && tsc -d",
     "test": "tsc && ava",
     "docs": "documentation readme index.js --section=API"
   },
