@@ -33,9 +33,9 @@ test("encrypt + decrypt", (t) => {
 });
 
 test("errors", (t) => {
-    t.truthy(encrypt(private_key, public_key, message_long, -1));
+    t.truthy(encrypt(private_key, public_key, message_long, {maxsize: -1}));
     t.throws(() => encrypt(private_key, public_key, message_long), "message too long (max 256 chars)");
-    t.throws(() => encrypt(private_key, public_key, message, 5), "message too long (max 5 chars)");
+    t.throws(() => encrypt(private_key, public_key, message, {maxsize: 5}), "message too long (max 5 chars)");
 });
 
 test("setMemo", (t) => {

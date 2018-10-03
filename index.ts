@@ -10,14 +10,20 @@ export let MEMO = "TO DECRYPT: eos-encrypt\n";
  * @param {string} private_key EOSIO Private Key
  * @param {string} public_key EOSIO Public Key
  * @param {string} message Message to Encrypt
- * @param {string} [memo="TO DECRYPT: eos-encrypt\n"] Serialized Memo
- * @param {number} [maxsize=256] Maximum character message size
+ * @param {object} [options={}] Optional parameters
+ * @param {string} [options.memo="TO DECRYPT: eos-encrypt\n"] Serialized Memo
+ * @param {number} [options.maxsize=256] Maximum character message size
  * @returns {string} Encrypted Message
  * @example
  *
  * const encrypted = encrypt(private_key, public_key, message);
  */
-export function encrypt(private_key: string, public_key: string, message: string, memo = MEMO, maxsize = 256) {
+export function encrypt(private_key: string, public_key: string, message: string, options: {
+    memo?: string,
+    maxsize?: number,
+} = {}): string {
+    const memo = options.memo ? options.memo : MEMO;
+    const maxsize = options.maxsize ? options.maxsize : 256;
     const buff = Aes.encrypt(private_key, public_key, message);
     const str = serialize(buff, memo);
 
@@ -32,13 +38,17 @@ export function encrypt(private_key: string, public_key: string, message: string
  * @param {string} private_key EOSIO Private Key
  * @param {string} public_key EOSIO Public Key
  * @param {string} message Encrypted Message
- * @param {string} [memo="TO DECRYPT: eos-encrypt\n"] Serialized Memo
+ * @param {object} [options={}] Optional parameters
+ * @param {string} [options.memo="TO DECRYPT: eos-encrypt\n"] Serialized Memo
  * @returns {string} Decrypted Message
  * @example
  *
  * const decrypted = decrypt(private_key, public_key, message);
  */
-export function decrypt(private_key: string, public_key: string, message: string, memo = MEMO) {
+export function decrypt(private_key: string, public_key: string, message: string, options: {
+    memo?: string,
+} = {}): string {
+    const memo = options.memo ? options.memo : MEMO;
     const { nonce, content, checksum } = deserialize(message, memo);
     const decrypted = Aes.decrypt(private_key, public_key, nonce, content, checksum);
 

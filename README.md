@@ -43,6 +43,9 @@ const decrypted = decrypt(private_key, public_key, encrypted);
 -   [decrypt](#decrypt)
     -   [Parameters](#parameters-1)
     -   [Examples](#examples-1)
+-   [setMemo](#setmemo)
+    -   [Parameters](#parameters-2)
+    -   [Examples](#examples-2)
 
 ### encrypt
 
@@ -53,7 +56,9 @@ Encrypt Message
 -   `private_key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** EOSIO Private Key
 -   `public_key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** EOSIO Public Key
 -   `message` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Message to Encrypt
--   `maxsize` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Maximum character message size (optional, default `256`)
+-   `options` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Optional parameters (optional, default `{}`)
+    -   `options.memo` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized Memo (optional, default `"TO DECRYPT: eos-encrypt\n"`)
+    -   `options.maxsize` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Maximum character message size (optional, default `256`)
 
 #### Examples
 
@@ -72,6 +77,8 @@ Decrypt Message
 -   `private_key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** EOSIO Private Key
 -   `public_key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** EOSIO Public Key
 -   `message` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Encrypted Message
+-   `options` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Optional parameters (optional, default `{}`)
+    -   `options.memo` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized Memo (optional, default `"TO DECRYPT: eos-encrypt\n"`)
 
 #### Examples
 
@@ -80,3 +87,19 @@ const decrypted = decrypt(private_key, public_key, message);
 ```
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Decrypted Message
+
+### setMemo
+
+Set Default Memo
+
+#### Parameters
+
+-   `memo` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Set Memo
+
+#### Examples
+
+```javascript
+setMemo("TO DECRYPT: my-dapp\n");
+```
+
+Returns **void** 
