@@ -1,6 +1,6 @@
 {
   "name": "eos-encrypt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Allows to encrypt & decypt a message with an EOS key pair using AES shared key encryption mechanism.",
   "main": "index.js",
   "types": "index.d.ts",
