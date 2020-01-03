@@ -1,10 +1,16 @@
 {
   "name": "eos-encrypt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Allows to encrypt & decypt a message with an EOS key pair using AES shared key encryption mechanism.",
   "main": "index.js",
   "types": "index.d.ts",
-  "homepage": "https://github.com/eos-nation/eos-encrypt",
+  "bugs": {
+    "url": "https://github.com/EOS-Nation/eos-encrypt/issues"
+  },
+  "homepage": "https://github.com/EOS-Nation/eos-encrypt#readme",
+  "directories": {
+    "example": "examples"
+  },
   "files": [
     "index.js",
     "index.d.ts",
@@ -15,6 +21,17 @@
     "test": "tsc && ava",
     "docs": "documentation readme index.js --section=API"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EOS-Nation/eos-encrypt.git"
+  },
+  "keywords": [
+    "eosio",
+    "eos",
+    "encryption",
+    "encrypt"
+  ],
+  "author": "Denis Carriere <denis@eosnation.io>",
   "contributors": [
     {
       "name": "Denis Carriere",
